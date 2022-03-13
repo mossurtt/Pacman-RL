@@ -16,7 +16,6 @@ public class GameManagerAgent : Agent, IGameManager
 
     public override void Initialize()
     {
-        NewGame();
     }
 
     public override void CollectObservations(VectorSensor sensor)

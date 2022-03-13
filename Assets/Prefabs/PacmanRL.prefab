@@ -15,17 +15,17 @@ PrefabInstance:
     - target: {fileID: 208099910806470907, guid: 60d101cc5db9eed468068181d73949a9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.932838
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 208099910806470907, guid: 60d101cc5db9eed468068181d73949a9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.998525
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 208099910806470907, guid: 60d101cc5db9eed468068181d73949a9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -11.885722
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 208099910806470907, guid: 60d101cc5db9eed468068181d73949a9,
         type: 3}
@@ -79,7 +79,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7772409271656499247, guid: 60d101cc5db9eed468068181d73949a9,
         type: 3}
+      propertyPath: m_Depth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7772409271656499247, guid: 60d101cc5db9eed468068181d73949a9,
+        type: 3}
       propertyPath: m_AllowMSAA
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7772409271656499247, guid: 60d101cc5db9eed468068181d73949a9,
+        type: 3}
+      propertyPath: m_TargetDisplay
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7772409271656499247, guid: 60d101cc5db9eed468068181d73949a9,
@@ -218,7 +228,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 5000
+  MaxStep: 0
   ghosts:
   - {fileID: 1902204374686148864}
   - {fileID: 5135340599015162316}
