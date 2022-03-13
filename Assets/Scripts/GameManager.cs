@@ -116,7 +116,7 @@ public class GameManager : MonoBehaviour, IGameManager
         }
 
         PelletEaten(pellet);
-        CancelInvoke();
+        CancelInvoke(nameof(ResetGhostMultiplier));
         Invoke(nameof(ResetGhostMultiplier), pellet.duration);
     }
 

@@ -35,9 +35,9 @@ public class GhostFrightened : GhostBehavior
     {
         if (!this.eaten)
         {
-        this.blue.enabled = false;
-        this.white.enabled = true;
-        this.white.GetComponent<AnimatedSprite>().Restart();
+            this.blue.enabled = false;
+            this.white.enabled = true;
+            this.white.GetComponent<AnimatedSprite>().Restart();
         }
     }
 
@@ -93,7 +93,7 @@ public class GhostFrightened : GhostBehavior
                 Vector3 newPosition = this.transform.position + new Vector3(availableDirection.x, availableDirection.y, 0.0f);
                 float distance = (this.ghost.target.position - newPosition).sqrMagnitude;
 
-                if (distance < maxDistance)
+                if (distance > maxDistance)
                 {
                     direction = availableDirection;
                     maxDistance = distance;

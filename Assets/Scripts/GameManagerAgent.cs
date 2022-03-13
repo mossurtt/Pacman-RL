@@ -34,10 +34,22 @@ public class GameManagerAgent : Agent, IGameManager
 
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
-        var actionX = 2f * Mathf.Clamp(actionBuffers.ContinuousActions[0], -1f, 1f);
-        var actionY = 2f * Mathf.Clamp(actionBuffers.ContinuousActions[1], -1f, 1f);
-
-        pacman.movement.SetDirection(new Vector2(actionX,actionY));
+        switch (actionBuffers.DiscreteActions[0])
+        {
+            case 1: pacman.movement.SetDirection(Vector2.up);
+                break;
+            case 2: pacman.movement.SetDirection(Vector2.down);
+                break;
+            case 3: pacman.movement.SetDirection(Vector2.left);
+                break;
+            case 4: pacman.movement.SetDirection(Vector2.right);
+                break;
+        }
+        
+        // var actionX = 2f * Mathf.Clamp(actionBuffers.ContinuousActions[0], -1f, 1f);
+        // var actionY = 2f * Mathf.Clamp(actionBuffers.ContinuousActions[1], -1f, 1f);
+        //
+        // pacman.movement.SetDirection(new Vector2(actionX,actionY));
     }
 
     public override void OnEpisodeBegin()
@@ -167,10 +179,4 @@ public class GameManagerAgent : Agent, IGameManager
     {
         this.ghostMultiplier = 1;
     }
-
-
-
-
-
-
 }

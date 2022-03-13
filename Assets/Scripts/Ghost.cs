@@ -1,8 +1,9 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Movement))]
 public class Ghost : MonoBehaviour
 {
-    [HideInInspector] public IGameManager gameManager;
+    protected IGameManager gameManager;
     public Movement movement { get; private set; }
     public GhostHome home { get; private set; }
     public GhostScatter scatter { get; private set; }
@@ -14,53 +15,54 @@ public class Ghost : MonoBehaviour
 
     private void Awake()
     {
-        this.movement = GetComponent<Movement>();
-        this.home = GetComponent<GhostHome>();
-        this.scatter = GetComponent<GhostScatter>();
-        this.chase = GetComponent<GhostChase>();
-        this.frightened = GetComponent<GhostFrightened>();
+        gameManager = GetComponentInParent<IGameManager>();
+        movement = GetComponent<Movement>();
+        home = GetComponent<GhostHome>();
+        scatter = GetComponent<GhostScatter>();
+        chase = GetComponent<GhostChase>();
+        frightened = GetComponent<GhostFrightened>();
     }
 
     private void Start()
     {
         ResetState();
-        gameManager = GetComponentInParent<IGameManager>();
     }
-
 
     public void ResetState()
     {
-        this.gameObject.SetActive(true);
-        this.movement.ResetState();
+        gameObject.SetActive(true);
+        movement.ResetState();
 
-        this.frightened.Disable();
-        this.chase.Disable();
-        this.scatter.Enable();
+        frightened.Disable();
+        chase.Disable();
+        scatter.Enable();
 
-        if (this.home != this.initialBehavior)
-        {
-            this.home.Disable();
+        if (home != initialBehavior) {
+            home.Disable();
         }
 
-        if (this.initialBehavior != null)
-        {
-            this.initialBehavior.Enable();
+        if (initialBehavior != null) {
+            initialBehavior.Enable();
         }
+    }
+
+    public void SetPosition(Vector3 position)
+    {
+        // Keep the z-position the same since it determines draw depth
+        position.z = transform.position.z;
+        transform.position = position;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Pacman"))
         {
-            if (this.frightened.enabled)
-            {
+            if (frightened.enabled) {
                 gameManager.GhostEaten(this);
-            }
-            else
-            {
+            } else {
                 gameManager.PacmanEaten();
             }
         }
     }
-}
 
+}
