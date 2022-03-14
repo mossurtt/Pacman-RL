@@ -1,11 +1,11 @@
 {
   "dependencies": {
     "com.unity.2d.tilemap": "1.0.0",
-    "com.unity.2d.tilemap.extras": "2.0.0",
+    "com.unity.2d.tilemap.extras": "2.2.0",
     "com.unity.ide.rider": "3.0.12",
     "com.unity.inputsystem": "1.3.0",
-    "com.unity.ml-agents": "file:../../com.unity.ml-agents",
-    "com.unity.ml-agents.extensions": "file:../../com.unity.ml-agents.extensions",
+    "com.unity.ml-agents": "2.2.1-exp.1",
+    "com.unity.ml-agents.extensions": "git+https://github.com/Unity-Technologies/ml-agents.git?path=com.unity.ml-agents.extensions#release_19",
     "com.unity.nuget.newtonsoft-json": "2.0.0",
     "com.unity.test-framework": "1.1.29",
     "com.unity.toolchain.macos-x86_64-linux-x86_64": "0.1.20-preview",

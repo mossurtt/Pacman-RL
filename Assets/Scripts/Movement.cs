@@ -53,8 +53,6 @@ public class Movement : MonoBehaviour
 
     public void SetDirection(Vector2 direction, bool forced = false)
     {
-        if (direction == Vector2.zero) 
-            Debug.Log("kurwa");
         // Only set the direction if the tile in that direction is available
         // otherwise we set it as the next direction so it'll automatically be
         // set when it does become available

@@ -14,7 +14,7 @@ public class GhostChase : GhostBehavior
         // Do nothing while the ghost is frightened
         if (node != null && enabled && !ghost.frightened.enabled)
         {
-            Vector2 direction = Vector2.zero;
+            Vector2 direction = node.availableDirections[0];
             float minDistance = float.MaxValue;
 
             // Find the available direction that moves closet to pacman
@@ -25,7 +25,7 @@ public class GhostChase : GhostBehavior
                 Vector3 newPosition = transform.position + new Vector3(availableDirection.x, availableDirection.y);
                 float distance = (ghost.target.position - newPosition).sqrMagnitude;
 
-                if (distance < minDistance)
+                if (distance < minDistance && ghost.movement.direction != -availableDirection)
                 {
                     direction = availableDirection;
                     minDistance = distance;

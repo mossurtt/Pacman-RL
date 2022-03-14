@@ -62,6 +62,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 323071215523815334, guid: 60d101cc5db9eed468068181d73949a9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787413755726246218, guid: 60d101cc5db9eed468068181d73949a9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3280423905962603749, guid: 60d101cc5db9eed468068181d73949a9,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4659341510364351869, guid: 60d101cc5db9eed468068181d73949a9,
         type: 3}
       propertyPath: initialDirection.x
@@ -85,7 +100,7 @@ PrefabInstance:
     - target: {fileID: 7772409271656499247, guid: 60d101cc5db9eed468068181d73949a9,
         type: 3}
       propertyPath: m_AllowMSAA
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7772409271656499247, guid: 60d101cc5db9eed468068181d73949a9,
         type: 3}
@@ -95,12 +110,17 @@ PrefabInstance:
     - target: {fileID: 7772409271656499247, guid: 60d101cc5db9eed468068181d73949a9,
         type: 3}
       propertyPath: orthographic size
-      value: 15.6
+      value: 15.62
       objectReference: {fileID: 0}
     - target: {fileID: 7860540878226557281, guid: 60d101cc5db9eed468068181d73949a9,
         type: 3}
       propertyPath: m_Name
       value: Pacman
+      objectReference: {fileID: 0}
+    - target: {fileID: 8762283288429802401, guid: 60d101cc5db9eed468068181d73949a9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 9176444419659543355, guid: 60d101cc5db9eed468068181d73949a9,
         type: 3}
@@ -207,9 +227,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Camera: {fileID: 2867902098757688745}
   m_SensorName: CameraSensor
-  m_Width: 128
-  m_Height: 128
-  m_Grayscale: 0
+  m_Width: 256
+  m_Height: 256
+  m_Grayscale: 1
   m_ObservationType: 0
   m_ObservationStacks: 1
   m_Compression: 1
@@ -228,7 +248,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 0
+  MaxStep: 500000
   ghosts:
   - {fileID: 1902204374686148864}
   - {fileID: 5135340599015162316}
@@ -272,7 +292,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: bd8e2405d46ecd848a7a76afce83f935, type: 3}
   m_InferenceDevice: 2
   m_BehaviorType: 0
   m_BehaviorName: Pacman

@@ -85,7 +85,7 @@ public class GhostFrightened : GhostBehavior
 
         if (node != null && this.enabled)
         {
-            Vector2 direction = Vector2.zero;
+            Vector2 direction = node.availableDirections[0];
             float maxDistance = float.MinValue;
 
             foreach (Vector2 availableDirection in node.availableDirections)
@@ -93,7 +93,7 @@ public class GhostFrightened : GhostBehavior
                 Vector3 newPosition = this.transform.position + new Vector3(availableDirection.x, availableDirection.y, 0.0f);
                 float distance = (this.ghost.target.position - newPosition).sqrMagnitude;
 
-                if (distance > maxDistance)
+                if (distance > maxDistance && ghost.movement.direction != -availableDirection)
                 {
                     direction = availableDirection;
                     maxDistance = distance;

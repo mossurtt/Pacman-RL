@@ -109,9 +109,9 @@ public class GameManagerAgent : Agent, IGameManager
     public void GhostEaten(Ghost ghost)
     {
         int points = ghost.points * this.ghostMultiplier;
-        SetReward(10);
 
         SetScore(this.score + points);
+        SetReward(points/10f);
         this.ghostMultiplier++;
     }
 
@@ -120,7 +120,7 @@ public class GameManagerAgent : Agent, IGameManager
         this.pacman.gameObject.SetActive(false);
 
         SetLives(this.lives - 1);
-        SetReward(-10);
+        SetReward(-50);
 
         if(this.lives > 0)
         {
