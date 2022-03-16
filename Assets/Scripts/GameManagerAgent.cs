@@ -56,13 +56,13 @@ public class GameManagerAgent : Agent, IGameManager
         NewGame();
     }
 
-    private void Update()
-    {
-        if (this.lives <= 0 && Input.anyKeyDown)
-        {
-            NewGame();
-        }
-    }
+    // private void Update()
+    // {
+    //     if (this.lives <= 0 && Input.anyKeyDown)
+    //     {
+    //         NewGame();
+    //     }
+    // }
 
     private void NewRound()
     {
