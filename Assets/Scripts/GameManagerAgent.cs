@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GameManagerAgent : Agent, IGameManager
 {
+    private const float addMultiplier = 1f;
     public Ghost[] ghosts;
     public Pacman pacman;
     public Transform pellets;
@@ -13,6 +14,8 @@ public class GameManagerAgent : Agent, IGameManager
     public int score { get; private set; }
     public int lives { get; private set; }
 
+    private float rewardMultiplier = 1f;
+    
 
     public override void Initialize()
     {
@@ -26,6 +29,7 @@ public class GameManagerAgent : Agent, IGameManager
 
     private void NewGame()
     {
+        rewardMultiplier = 1f;
         SetScore(0);
         SetLives(3);
         NewRound();
@@ -140,7 +144,9 @@ public class GameManagerAgent : Agent, IGameManager
 
         SetScore(this.score + pellet.points);
 
-        SetReward(pellet.points / 10f);
+        SetReward(pellet.points * rewardMultiplier / 10f);
+
+        rewardMultiplier += addMultiplier;
 
         if(!HasRemainingPellets())
         {
