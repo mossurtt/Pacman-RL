@@ -115,7 +115,7 @@ public class GameManagerAgent : Agent, IGameManager
         int points = ghost.points * this.ghostMultiplier;
 
         SetScore(this.score + points);
-        SetReward(points/10f);
+        SetReward(points);// /10f * 500f * this.ghostMultiplier);
         this.ghostMultiplier++;
     }
 
@@ -125,6 +125,7 @@ public class GameManagerAgent : Agent, IGameManager
 
         SetLives(this.lives - 1);
         SetReward(-50);
+        //SetReward(-10000);
 
         if(this.lives > 0)
         {
