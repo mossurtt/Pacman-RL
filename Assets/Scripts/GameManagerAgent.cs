@@ -127,12 +127,12 @@ public class GameManagerAgent : Agent, IGameManager
         SetReward(-50);
         //SetReward(-10000);
 
-        if(this.lives > 0)
-        {
-            ResetState();
-            //Invoke(nameof(ResetState), 3.0f);
-        }
-        else
+        // if(this.lives > 0)
+        // {
+        //     ResetState();
+        //     //Invoke(nameof(ResetState), 3.0f);
+        // }
+        // else
         {
             // GameOver();
             EndEpisode();

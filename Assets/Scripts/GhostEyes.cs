@@ -17,7 +17,7 @@ public class GhostEyes : MonoBehaviour
         movement = GetComponentInParent<Movement>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (movement.direction == Vector2.up) {
             spriteRenderer.sprite = up;

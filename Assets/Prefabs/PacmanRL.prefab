@@ -90,7 +90,7 @@ PrefabInstance:
     - target: {fileID: 6070158559461883451, guid: 60d101cc5db9eed468068181d73949a9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.4
+      value: 2.3
       objectReference: {fileID: 0}
     - target: {fileID: 7772409271656499247, guid: 60d101cc5db9eed468068181d73949a9,
         type: 3}
@@ -110,12 +110,12 @@ PrefabInstance:
     - target: {fileID: 7772409271656499247, guid: 60d101cc5db9eed468068181d73949a9,
         type: 3}
       propertyPath: orthographic size
-      value: 15.62
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 7860540878226557281, guid: 60d101cc5db9eed468068181d73949a9,
         type: 3}
       propertyPath: m_Name
-      value: PacmanRL
+      value: Pacman
       objectReference: {fileID: 0}
     - target: {fileID: 8762283288429802401, guid: 60d101cc5db9eed468068181d73949a9,
         type: 3}
@@ -227,8 +227,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Camera: {fileID: 2867902098757688745}
   m_SensorName: CameraSensor
-  m_Width: 128
-  m_Height: 128
+  m_Width: 192
+  m_Height: 192
   m_Grayscale: 0
   m_ObservationType: 0
   m_ObservationStacks: 3
