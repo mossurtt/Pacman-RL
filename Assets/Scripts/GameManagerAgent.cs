@@ -124,7 +124,7 @@ public class GameManagerAgent : Agent, IGameManager
         this.pacman.gameObject.SetActive(false);
 
         SetLives(this.lives - 1);
-        SetReward(-500);
+        SetReward(-1000);
 
         if(this.lives > 0)
         {
