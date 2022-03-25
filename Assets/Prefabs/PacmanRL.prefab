@@ -115,7 +115,7 @@ PrefabInstance:
     - target: {fileID: 7860540878226557281, guid: 60d101cc5db9eed468068181d73949a9,
         type: 3}
       propertyPath: m_Name
-      value: Pacman
+      value: Pacman (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8762283288429802401, guid: 60d101cc5db9eed468068181d73949a9,
         type: 3}
@@ -283,7 +283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 2
+    VectorObservationSize: 0
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 0

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GameManagerAgent : Agent, IGameManager
 {
-    private const float addMultiplier = 1f;
+    private const float AddMultiplier = .1f;
     public Ghost[] ghosts;
     public Pacman pacman;
     public Transform pellets;
@@ -14,22 +14,22 @@ public class GameManagerAgent : Agent, IGameManager
     public int score { get; private set; }
     public int lives { get; private set; }
 
-    private float rewardMultiplier = 1f;
+    private float _rewardMultiplier = 1f;
     
 
     public override void Initialize()
     {
     }
 
-    public override void CollectObservations(VectorSensor sensor)
-    {
-        sensor.AddObservation(score);
-        sensor.AddObservation(lives);
-    }
+    // public override void CollectObservations(VectorSensor sensor)
+    // {
+    //     sensor.AddObservation(score);
+    //     sensor.AddObservation(lives);
+    // }
 
     private void NewGame()
     {
-        rewardMultiplier = 1f;
+        _rewardMultiplier = 1f;
         SetScore(0);
         SetLives(3);
         NewRound();
@@ -124,7 +124,7 @@ public class GameManagerAgent : Agent, IGameManager
         this.pacman.gameObject.SetActive(false);
 
         SetLives(this.lives - 1);
-        SetReward(-50);
+        SetReward(-100);
         //SetReward(-10000);
 
         // if(this.lives > 0)
@@ -145,9 +145,9 @@ public class GameManagerAgent : Agent, IGameManager
 
         SetScore(this.score + pellet.points);
 
-        SetReward(pellet.points * rewardMultiplier / 10f);
+        SetReward(pellet.points * _rewardMultiplier / 10f);
 
-        rewardMultiplier += addMultiplier;
+        _rewardMultiplier += AddMultiplier;
 
         if(!HasRemainingPellets())
         {
