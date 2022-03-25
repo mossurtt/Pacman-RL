@@ -14,7 +14,7 @@ public class GameManagerAgent : Agent, IGameManager
     public int score { get; private set; }
     public int lives { get; private set; }
 
-    private float rewardMultiplier = 1f;
+    //private float rewardMultiplier = 1f;
     
 
     public override void Initialize()
@@ -29,9 +29,9 @@ public class GameManagerAgent : Agent, IGameManager
 
     private void NewGame()
     {
-        rewardMultiplier = 1f;
+        //rewardMultiplier = 1f;
         SetScore(0);
-        SetLives(3);
+        SetLives(1);
         NewRound();
     }
 
@@ -115,7 +115,7 @@ public class GameManagerAgent : Agent, IGameManager
         int points = ghost.points * this.ghostMultiplier;
 
         SetScore(this.score + points);
-        SetReward(points/10f);
+        //SetReward(points/10f);
         this.ghostMultiplier++;
     }
 
@@ -124,7 +124,7 @@ public class GameManagerAgent : Agent, IGameManager
         this.pacman.gameObject.SetActive(false);
 
         SetLives(this.lives - 1);
-        SetReward(-50);
+        SetReward(-500);
 
         if(this.lives > 0)
         {
@@ -144,9 +144,10 @@ public class GameManagerAgent : Agent, IGameManager
 
         SetScore(this.score + pellet.points);
 
-        SetReward(pellet.points * rewardMultiplier / 10f);
+        //SetReward(pellet.points * rewardMultiplier / 10f);
+        SetReward(pellet.points);
 
-        rewardMultiplier += addMultiplier;
+        //rewardMultiplier += addMultiplier;
 
         if(!HasRemainingPellets())
         {
