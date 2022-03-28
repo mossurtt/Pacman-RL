@@ -5,13 +5,13 @@ public class Pacman : MonoBehaviour
 {
     public AnimatedSprite deathSequence;
     public SpriteRenderer spriteRenderer { get; private set; }
-    public new Collider2D collider { get; private set; }
+    public Collider2D col2D { get; private set; }
     public Movement movement { get; private set; }
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        collider = GetComponent<Collider2D>();
+        col2D = GetComponent<Collider2D>();
         movement = GetComponent<Movement>();
     }
 
@@ -40,7 +40,7 @@ public class Pacman : MonoBehaviour
     {
         enabled = true;
         spriteRenderer.enabled = true;
-        collider.enabled = true;
+        col2D.enabled = true;
         deathSequence.enabled = false;
         deathSequence.spriteRenderer.enabled = false;
         movement.ResetState();
@@ -51,7 +51,7 @@ public class Pacman : MonoBehaviour
     {
         enabled = false;
         spriteRenderer.enabled = false;
-        collider.enabled = false;
+        col2D.enabled = false;
         movement.enabled = false;
         deathSequence.enabled = true;
         deathSequence.spriteRenderer.enabled = true;

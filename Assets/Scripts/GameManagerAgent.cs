@@ -14,8 +14,8 @@ public class GameManagerAgent : Agent, IGameManager
     public int score { get; private set; }
     public int lives { get; private set; }
 
-    private float rewardMultiplier = 1f;
-    
+    // private float rewardMultiplier = 1f;
+    public int maxLives = 3;
 
     public override void Initialize()
     {
@@ -23,15 +23,15 @@ public class GameManagerAgent : Agent, IGameManager
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        sensor.AddObservation(score);
-        sensor.AddObservation(lives);
+        // sensor.AddObservation(score);
+        // sensor.AddObservation(lives);
     }
 
     private void NewGame()
     {
-        rewardMultiplier = 1f;
+        // rewardMultiplier = 1f;
         SetScore(0);
-        SetLives(3);
+        SetLives(maxLives);
         NewRound();
     }
 
@@ -115,7 +115,7 @@ public class GameManagerAgent : Agent, IGameManager
         int points = ghost.points * this.ghostMultiplier;
 
         SetScore(this.score + points);
-        SetReward(points/10f);
+        // SetReward(points);
         this.ghostMultiplier++;
     }
 
@@ -124,7 +124,7 @@ public class GameManagerAgent : Agent, IGameManager
         this.pacman.gameObject.SetActive(false);
 
         SetLives(this.lives - 1);
-        SetReward(-50);
+        SetReward(-200);
 
         if(this.lives > 0)
         {
@@ -144,9 +144,7 @@ public class GameManagerAgent : Agent, IGameManager
 
         SetScore(this.score + pellet.points);
 
-        SetReward(pellet.points * rewardMultiplier / 10f);
-
-        rewardMultiplier += addMultiplier;
+        SetReward(10);
 
         if(!HasRemainingPellets())
         {
